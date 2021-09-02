@@ -49,3 +49,21 @@ document.getElementById('buttonName')!.addEventListener('click', functionName);
   "app/app.ts"
 ]
 ```
+
+* adding files to compile can also be done by using glob. Instead of the above format, use the following to pick up anyfile that matches the pattern
+
+```json
+"include":[
+  "./**/*"
+]
+```
+* Multiple tsconfig files can be used to take effect in hierarchy. Consider creating base version at root level with base value that is needed everywhere. In the inheriting config file use the following tag to refer to the base value
+
+```json
+{
+  "extends": "../tsconfig.base",
+  "compilerOptions":{
+    "strict": "true"
+  }
+}
+```
