@@ -7,7 +7,7 @@ exists at the end of that module.
 
 # Utkal Notes 
 
-## Get Started
+## Getting Started
 
 * Write any file in ts compile it to JS file using command ```tsc filename.ts```
 * Refer to the .js file from the html source code using tag ```<script src="FileName.js"></script>```
@@ -98,3 +98,77 @@ module.exports = {
 };
 
 ```
+
+## Built-in Types
+* Built-in TS types
+* ```var``` vs. ```let``` , ```const```
+* Type annotations and type interface
+* Manage null and undefined
+* Controlflow-based type analysis
+
+
+**Built-in TS Types**
+* Boolean, Number, String (Single quote, double quote, tick quote) , Array (primary data structure) are usual types same as java script
+* Enum are special case in typescript
+* Consider declaring variables before using it, though native js types such as ```var``` is allowed to be declared later. Recommended type instead of ```var``` is ```let``` or ```const```
+* Difference between let and const is that variable with let can be reassigned with a value, const does not allow to change
+
+
+
+**Annotations**
+* Annotations are used to declare type of variable. Though it is not mandatory, compiler forces type by default during initialization. Annotation makes it explicit. Example:
+
+```ts
+let x:string = "Example of a String !"
+```
+* Types can also be of union type to allow multiple type of values. Example:
+
+```ts
+let x: string | number ;
+```
+
+**Annotations in Function**
+* JS considers all parameters to function as optional, allows more than declared number of parameters as well as any type. In TS it is considered required and recommended to declare type of parameter. To make a parameter optional use '?'. Example:
+
+```ts
+function functionName(param_name: number, param_name?: string): string {
+  //function body here
+}
+```
+
+**strictNullCheck**
+* ```strictNullCheck``` is a mechanism through which TS prevents many ```null``` or ```undefined``` error during compilation time that usually shows in JS. Hence this is a good recommended practice to keep this turned on in the tsconfig.json.
+* strictNullCheck compiler option must be turned on to ensure any allocation of null or undefined to a variable is flagged as error during compilation
+* To allow null or undefined those must be defined explicitly as annotations. Example
+
+```ts
+let x: string | null | undefined;
+```
+
+
+**Type Assertions**
+* Similar to annotations, but this one is to get a type of variable delayed
+```ts
+let anyNum: any = 5;
+let fixedString: string = (<number>anyNum).toFixed(4);
+console.log(fixedString);
+```
+
+Alternative syntax:
+```ts
+let fixedString: string = (anyNum as number).toFixed(4);
+```
+
+**Control flow-based type analysis**
+* Compiler checks the conditional statement and allows variable to most narrow type element type. Example:
+```ts
+var messageStrHtml: HTMLElement | string;
+if(typeof messageStrHtml == 'string'){
+  return messageStrHtml; // in this case TS compiler knows that the variable is type string 
+}
+else{
+  return messageStrHtml; // in this case TS compiler knows that the variable is type HTMLElement 
+}
+```
+
+
