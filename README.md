@@ -5,7 +5,7 @@ The *main* branch contains code as it
 exists at the start of the course. There are separate branches named after the modules in the course that contain the code as it 
 exists at the end of that module.
 
-# Utkal Notes 
+# Quick Developer Overview
 
 ## Getting Started
 
@@ -137,7 +137,7 @@ function functionName(param_name: number, param_name?: string): string {
 ```
 
 **strictNullCheck**
-* ```strictNullCheck``` is a mechanism through which TS prevents many ```null``` or ```undefined``` error during compilation time that usually shows in JS. Hence this is a good recommended practice to keep this turned on in the tsconfig.json.
+* ```strictNullCheck``` is a mechanism through which TS prevents many ```null``` or ```undefined``` error during compilation time that usually shows in JS. Hence this is a good recommended practice to keep this turned on in the tsconfig.json. Checking the number of parameters and type of parameter helps debug problems during development instead of catching them later in production.
 * strictNullCheck compiler option must be turned on to ensure any allocation of null or undefined to a variable is flagged as error during compilation
 * To allow null or undefined those must be defined explicitly as annotations. Example
 
