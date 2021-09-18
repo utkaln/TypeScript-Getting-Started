@@ -239,3 +239,47 @@ logger('Some Message');
 //
 ```
 
+
+## Interface and Classes
+
+* Interface declares just the the shape of a class that is - attribute and method signature, classes have the full implementation
+
+Example of interface
+
+```ts
+interface ExampleInterface {
+  name: string;
+  id: number;
+  
+}
+
+interface ExtendingInterface extends ExampleInterface {
+  address: string;
+  state: string;
+  zip: number;
+  
+  //define method with just signature only
+  sampleMethod: (paramName: string) => void;
+}
+
+```
+
+* There is an implicit match with type structure. This means if two objects have same attributes, they can be typecasted to each other
+* This is also called duck type (if it looks like duck, walks like duck, quacks like duck, it must be a duck)`
+
+Example:
+```ts
+interface FirstInterface {
+  name: string;
+  id: number;
+}
+
+let sampleVariable =  {
+  name: "Utkal";
+  id: 12345;
+  address: "Sparks, MD";
+}
+
+let newVar: FirstInterface = sampleVariable;
+
+```
