@@ -240,7 +240,7 @@ logger('Some Message');
 ```
 
 
-## Interface and Classes
+## Understanding Interface 
 
 * Interface declares just the the shape of a class that is - attribute and method signature, classes have the full implementation
 
@@ -256,7 +256,7 @@ interface ExampleInterface {
 interface ExtendingInterface extends ExampleInterface {
   address: string;
   state: string;
-  zip: number;
+  zip?: number; //this is an optional attribue, notice the ?
   
   //define method with just signature only
   sampleMethod: (paramName: string) => void;
@@ -281,5 +281,30 @@ let sampleVariable =  {
 }
 
 let newVar: FirstInterface = sampleVariable;
+
+```
+
+## Understanding Class
+* Beyond method implementations, there are more things done with classes and class members such as Access Modifiers (public, private, protected), Accessors (getter & setter)
+
+Example:
+
+```ts
+class Developer {
+  // declare a public variable, no need to explicitly mention public
+  department: string;
+  
+  //declare a private variable, must explicitly mention private
+  private _title: string;
+  
+  // implement getter and setter methods to access private variables
+  // remember to add this.var_name to access class members
+  get title(): string {
+    return this._title;
+  }
+  set title(newTitle: string): void {
+    this._title = newTitle;
+  }
+}
 
 ```
