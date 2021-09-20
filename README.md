@@ -291,6 +291,7 @@ let newVar: FirstInterface = sampleVariable;
 
 ## Understanding Class
 * Beyond method implementations, there are more things done with classes and class members such as Access Modifiers (public, private, protected), Accessors (getter & setter)
+* Static methods and variables can be simply invoked with class names, no need to create an object
 
 Example:
 
@@ -347,3 +348,23 @@ const firstPlayer: Player = new Player();
 firstPlayer.name = 'UTKAL';
 console.log(firstPlayer.formatName());
 ```
+
+### How to reference to multiple classes from separate ts files
+* Add reference to starting ts in the tsconfig file as shown below
+```ts
+"files": [
+        "./app.ts"
+]
+```
+
+* At the top of the first ts file add reference using the shortcut ```ref``` this produces the following line in VS Studio code
+```ts
+/// <reference path="person.ts" />
+```
+
+* Now to send all output js for the index html to be used, we can send them all bundled into a single js file, using following in the tsconfig
+
+### Constructor in a class
+* Role of constructor is to initiatilize attributes of a class as needed
+* make sure to call ```super()``` to invoke constructor of the parent class
+* if a variable is marked as ```readonly``` it can be only initialized once and within the constructor
