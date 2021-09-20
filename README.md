@@ -21,6 +21,11 @@ exists at the end of that module.
   }
 }
 ```
+* To compile a TS file use the following command on terminal window
+
+```unix
+tsc filename.ts secondfile.ts thirdfile.ts --outDir "../js"
+```
 
 * JS elements may usually throw error as **Object is possibly 'null'** when compiling ts file to js. This can be removed by adding not null assertion as shown below
 
@@ -307,4 +312,38 @@ class Developer {
   }
 }
 
+```
+### ECMA script private fields have a slight different way to define private fields in JS supported by TS3.8
+```ts
+//declare a private variable
+# varNAme: string;
+```
+
+### How to extend a class
+
+```ts
+class GameDeveloper extends Developer {
+  // this class inherits all attributes and methods of class Developer
+  // from the example above it means - this class also has department attribute
+  favoriteEditor: string;
+  writeToEdit(): void {
+    //do something in the method
+    
+  }
+}
+
+```
+
+### How to implement a interface in a class
+
+```ts
+// define new class that implements interface Person
+class Player implements Person { 
+   
+}
+
+// to use this in another ts file, refer it in the following way
+const firstPlayer: Player = new Player();
+firstPlayer.name = 'UTKAL';
+console.log(firstPlayer.formatName());
 ```
