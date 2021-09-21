@@ -368,3 +368,26 @@ console.log(firstPlayer.formatName());
 * Role of constructor is to initiatilize attributes of a class as needed
 * make sure to call ```super()``` to invoke constructor of the parent class
 * if a variable is marked as ```readonly``` it can be only initialized once and within the constructor
+* Example of a classic constructor (same as java syntax) below - 
+
+```ts
+
+class Game {
+    private scoreboard: ScoreBoard = new ScoreBoard();
+    player: Player;
+    problemCount: number;
+    factor: number;
+
+    constructor(newPl: Player, numProb: number, multFactor: number){
+        this.player = newPl;
+        this.problemCount = numProb;
+        this.factor = multFactor;
+    }
+}
+```
+* Example of a more optimized and reduced way of declaring constructor method - **Recommended**
+
+```ts
+constructor(public player: Player, public problemCount: number, public factor: number) {}
+ 
+```
