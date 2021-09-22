@@ -370,7 +370,7 @@ console.log(firstPlayer.formatName());
 * if a variable is marked as ```readonly``` it can be only initialized once and within the constructor
 * Example of a classic constructor (same as java syntax) below - 
 
-```ts
+```typescript
 
 class Game {
     private scoreboard: ScoreBoard = new ScoreBoard();
@@ -385,9 +385,9 @@ class Game {
     }
 }
 ```
-* Example of a more optimized and reduced way of declaring constructor method - **Recommended**
+* **Recommended** Example of a more optimized and reduced way of declaring constructor method - 
 
-```ts
+```typescript
 constructor(public player: Player, public problemCount: number, public factor: number) {}
  
 ```
