@@ -391,3 +391,42 @@ class Game {
 constructor(public player: Player, public problemCount: number, public factor: number) {}
  
 ```
+
+## Modules / APIs
+* Allow encapsulate implementation details and expose APIs for other modules, this allows refactoring of implementations
+* Modules are reusable and provide higher level abstraction
+* Note: Unless the compiler is ES2015 then a module loader is needed to run modules. Webpack is an example of Module bundler that helps. Webpack prepares the module run in the browser
+* To use it as a module just add the keyword ```export``` at the declaration line of the interface, function or class
+* More optimized way of writing export sentence for multiple items at once in the example that follows.
+
+```ts
+// example module is person.ts
+interface Person {}
+function hirePerson(): void {}
+class Employee {}
+class Manager {}
+
+//export interface, function, class, but keep the Manager class private to the module only
+export {Person, hirePerson, Employee as Staff};
+```
+
+* consuming modules must import module to use, example -
+
+```ts
+// import multiple elements from another module
+import { Person, hirePerson } from './person';
+let human: Person;
+
+// default module import
+import Worker from './person';
+let engineer: Worker = new Worker();
+
+// use alias while importing
+import { StaffMember as CoWorker } from './person';
+let emp: CoWorker = new CoWorker();
+
+// import all the available modules
+import * as HR from './person';
+
+```
+
