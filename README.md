@@ -72,6 +72,23 @@ document.getElementById('buttonName')!.addEventListener('click', functionName);
   }
 }
 ```
+* ```outFile``` is a compiler option attribute that allows all ts files to be compiled and converted to one js file. Example below.
+* Note if using module bundler then do not use ```outFile``` option
+
+```ts
+"compilerOptions":{
+    "outFile": "../js/app.js"
+  }
+```
+
+* To use module make following changes to ts config to specify what module compiler or bundle option to use 
+
+```ts
+"compilerOptions":{
+    "module": "commonjs"
+  }
+```
+
 
 ### Webpack
 * Webpack configuration allows npm to understand dependencies and source and target of compilation
@@ -393,6 +410,7 @@ constructor(public player: Player, public problemCount: number, public factor: n
 ```
 
 ## Modules / APIs
+* Instead of using references to each used model in ts file using a ///ref syntax module export/ import can be used
 * Allow encapsulate implementation details and expose APIs for other modules, this allows refactoring of implementations
 * Modules are reusable and provide higher level abstraction
 * Note: Unless the compiler is ES2015 then a module loader is needed to run modules. Webpack is an example of Module bundler that helps. Webpack prepares the module run in the browser
@@ -427,6 +445,8 @@ let emp: CoWorker = new CoWorker();
 
 // import all the available modules
 import * as HR from './person';
+HR.hirePerson();
 
 ```
+
 
