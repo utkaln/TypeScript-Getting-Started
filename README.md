@@ -449,4 +449,12 @@ HR.hirePerson();
 
 ```
 
+* **Best Practice for using Module reference** - For own module use relative path, for third party use non-relative path
+* The third party modules are default searched within the node_module package, to alter this use baseurl property in tsconfig
+
+## Type Declaration
+* Type declaration is typescript wrapper around popular javascript library
+* the file name has extension d.ts. search for these in github repo **DefinitelyTyped**
+* Type declaration is a development time tool to show errors during compile time. For runtime the actual javascript files must be deployed
+* These can be used using ```npm install``` command
 
