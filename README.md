@@ -458,3 +458,34 @@ HR.hirePerson();
 * Type declaration is a development time tool to show errors during compile time. For runtime the actual javascript files must be deployed
 * These can be used using ```npm install``` command
 
+
+## Destructure Array and Objects
+* TypeScript automatically can destructure an array in the following way - 
+
+```ts
+let planets = [ 'mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn'];
+
+let [first, second, third, fourth] = planets;
+
+```
+* TypeScript automatically can destructure an Object in the following way - 
+
+```ts
+let person = {
+  name: 'UTKAL',
+  address: '12345 Abcd Street',
+  phone: '123-456-7890'
+};
+
+let {name, address, phone } = person;
+// the new var name must match to that of the attributes of the object
+```
+
+* **rest parameter** is a way to capture the remainder of the elements from an array. Use a variable name preceded with Three dots to declare rest param. 
+* Rest params have the same object type as that of the source array. Example: 
+```ts
+let planets = [ 'mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn'];
+
+let [first, second, ...oth] = planets;
+
+```
