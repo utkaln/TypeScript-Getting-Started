@@ -481,7 +481,8 @@ let {name, address, phone } = person;
 // the new var name must match to that of the attributes of the object
 ```
 
-* **rest parameter** is a way to capture the remainder of the elements from an array. Use a variable name preceded with Three dots to declare rest param. 
+### Rest Parameters
+* rest parameter is a way to capture the remainder of the elements from an array. Use a variable name preceded with Three dots to declare rest param. 
 * Rest params have the same object type as that of the source array. Example: 
 ```ts
 let planets = [ 'mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn'];
@@ -489,3 +490,42 @@ let planets = [ 'mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn'];
 let [first, second, ...oth] = planets;
 
 ```
+
+### Spread parameters
+* spread is a way to append an array to another array in a simpler 
+
+```ts
+let firstArray = [20,30,40];
+let secondArray = [1,2,3,4,...firstArray];
+console.log();
+// prints [1,2,3,4,20,30,40]
+```
+
+* In case of complex object arrays use ```.push()``` method to spread
+
+```ts
+interface Book {
+  id: number;
+  title: string;
+  author: string;
+  available: boolean;
+}
+
+let schoolBooks: Book[] = [
+  { id: 10, title: "Book Title 1", author: "Author 1", available: true },
+  { id: 11, title: "Book Title 1", author: "Author 1", available: true },
+  { id: 12, title: "Book Title 1", author: "Author 1", available: true },
+];
+
+let collegeBooks: Book[] = [
+  { id: 20, title: "Book Title 11", author: "Author 11", available: true },
+  { id: 21, title: "Book Title 21", author: "Author 21", available: true },
+  { id: 22, title: "Book Title 31", author: "Author 31", available: true },
+];
+
+let allBooks: Book[] = schoolBooks;
+console.log(allBooks.length);
+allBooks.push(...collegeBooks);
+console.log(allBooks.length);
+```
+
