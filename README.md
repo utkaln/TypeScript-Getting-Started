@@ -501,7 +501,12 @@ console.log();
 // prints [1,2,3,4,20,30,40]
 ```
 
-* In case of complex object arrays use ```.push()``` method to spread
+* **preferred** In case of complex object arrays use ```.push()``` method to spread
+```ts
+firstArray.push(...secondArray);
+// result -> [1,2,3,4,20,30,40]
+
+```
 
 ```ts
 interface Book {
@@ -528,5 +533,30 @@ console.log(allBooks.length);
 allBooks.push(...collegeBooks);
 console.log(allBooks.length);
 ```
+
+### Tuple Types
+* Like arrays but has a key and value 
+
+```ts
+let myTuple: [number, string] = [10, 'Abcde']
+// in the above case the first and the second element must be number and the string respectively
+// third element onwards can be either type
+
+
+```
+
 ### Union and Intersection types
- 
+
+```ts
+// Union -> Can be either of any type specified
+// example below shows the id parameter can be string or number
+function FindType(id: string | number) {
+  // do more
+}
+
+// Intersection -> must have properties of both types, mostly applies to objects
+function MatchProperties(id: Object1 & Object2) {
+  // declare all elements of Object1 and Object2 to qualify
+}
+```
+
